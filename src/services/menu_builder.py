@@ -33,6 +33,7 @@ class MenuBuilder:
 
             if (
                 restriction is None or restriction not in dish_restrictions
+                and self.inventory.check_recipe_availability(dish.recipe)
             ) and all(
                 self.inventory.inventory.get(ingredient)
                 for ingredient in dish_ingredients
